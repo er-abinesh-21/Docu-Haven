@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { FileText, LogOut, User, Settings, Upload, Trash2, Search } from 'lucide-react';
 import { useState } from 'react';
+import StorageBar from './StorageBar';
 
 const Navbar = () => {
   const { currentUser, userProfile, logout } = useAuth();
@@ -32,22 +33,22 @@ const Navbar = () => {
             </Link>
 
             <div className="ml-10 flex items-center gap-6">
-              <Link 
-                to="/dashboard" 
+              <Link
+                to="/dashboard"
                 className="text-gray-700 hover:text-primary-600 font-medium transition-colors flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
                 <span className="hidden sm:inline">Documents</span>
               </Link>
-              <Link 
-                to="/upload" 
+              <Link
+                to="/upload"
                 className="text-gray-700 hover:text-primary-600 font-medium transition-colors flex items-center gap-2"
               >
                 <Upload className="w-4 h-4" />
                 <span className="hidden sm:inline">Upload</span>
               </Link>
-              <Link 
-                to="/trash" 
+              <Link
+                to="/trash"
                 className="text-gray-700 hover:text-primary-600 font-medium transition-colors flex items-center gap-2"
               >
                 <Trash2 className="w-4 h-4" />
@@ -96,6 +97,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Storage Bar */}
+      <StorageBar />
     </nav>
   );
 };
